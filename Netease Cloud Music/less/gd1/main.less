@@ -1,0 +1,146 @@
+main {
+    width: 100%;
+    margin-top: 20px;
+    overflow-y: scroll;
+    // background-color: rgba(255,255,255,0.5);
+    background-color: white;
+    border-radius: 30 * @px 30* @px 0 0;
+    min-height: 500px;
+
+    ul {
+        width: 100%;
+
+        li:hover {
+            background-color: #ccc;
+        }
+
+        li {
+            border-bottom: 1px solid rgb(250, 240, 240);
+            a {
+                // background-color: #red;
+                width: 100%;
+                // border-top: 1px solid #e6e6e6;
+                color: black;
+                padding: 8 * @px 20*@px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-decoration: none;
+            }
+
+            .song-text {
+                width: 80%;
+
+                &>span {
+                    color: #999999;
+                    font-size: 18 * @px;
+                    vertical-align: middle;
+                }
+
+                h3 {
+                    width: 80%;
+                    margin-left: 14 * @px;
+                    vertical-align: middle;
+                    display: inline-block;
+                    font-weight: normal;
+
+                    p {
+                        width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        color: #333333;
+                        font-size: 18 * @px;
+
+                        i {
+                            color: #ccc;
+                            font-size: 18 * @px;
+                            font-style: normal;
+                            font-weight: normal;
+                        }
+                    }
+
+                    span {
+                        display: inline-block;
+                        width: 80%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-size: 14 * @px;
+                        color: #808080;
+                    }
+                }
+            }
+
+            .song-icon {
+                i {
+                    font-size: 22 * @px;
+                    color: #b3b3b3;
+                }
+
+                i:first-child {
+                    padding-right: 20 * @px;
+                }
+            }
+        }
+
+        li:first-child {
+            width: 100%;
+            // border-top: 1px solid #e6e6e6;
+            color: black;
+            align-items: center;
+            padding: 15 * @px 20*@px;
+            
+            
+            line-height: 40px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            // background-color: white;
+            align-items: center;
+
+            h3>&span {
+                width: 70%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap
+            }
+
+            div {
+                i {
+                    font-size: 22 * @px;
+                    color: #666;
+                }
+
+                span:nth-of-type(1) {
+                    margin-left: 20 * @px;
+                    font-size: 20 * @px;
+                    color: black;
+                }
+
+                span:nth-of-type(2) {
+                    font-size: 22 * @px;
+                    color: #ccc;
+                    font-size: 16 * @px;
+                }
+            }
+
+            &>span {
+                box-sizing: content-box;
+                padding: 3 * @px;
+                background-color: #ff3a3a;
+                line-height: 40 * @px;
+                border-radius: 30 * @px;
+                display: block;
+            }
+
+            .unsub {
+                color: #ccc;
+                background-color: transparent;
+                border: none;
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/less" href="../less/gd1/style.less">
+    <script src="../lib/less.js"></script>
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>歌单</title>
+</head>
+
+<body>
+    <img src="" alt="" id="bgimg">
+    <div class="top">
+        <nav>
+            <img src="" alt="">
+            <div>
+                    <!-- onClick=”javascript :history.back(-1);” -->
+                <a href="#" onclick="javascript:history.back(-1)"><i class="fa fa-arrow-left"></i></a>
+
+            </div>
+            <h3>
+                
+                <!-- 歌单推荐信息 -->
+                <span id="list-tips"></span>
+            </h3>
+            <div>
+                <i class="fa fa-search"></i>
+                <i class="fa fa-ellipsis-v"></i>
+            </div>
+        </nav>
+        <div class="center">
+            <div class="center-left">
+                <img src="" alt="" id="gdimg">
+                <span id="playCount"><i class="fa fa-play"></i>324万</span>
+            </div>
+            <div class="center-right">
+                <!-- 标题 -->
+                <p id="list-Title">
+                    
+                </p>
+                <!-- 详细描述 -->
+                <div id="list-creator">
+                    <img src="" alt="">
+                    <span>123</span>
+                </div>
+                <h3 id="list-details">
+                
+                </h3>
+            </div>
+
+        </div>
+        <ul class="top-icon">
+            <li>
+                <i class="fa fa-commenting-o"></i>
+                <!-- 评论数 -->
+                <p id="commentCount"></p>
+            </li>
+            <li>
+                <i class="fa fa-share-alt"></i>
+                <!-- 分享数 -->
+                <p id="shareCount"></p>
+            </li>
+            <li>
+                <i class="fa fa-arrow-circle-down"></i>
+                <p>下载</p>
+            </li>
+            <li>
+                <i class="fa fa-check-square-o"></i>
+                <p>多选</p>
+            </li>
+        </ul>
+    </div>
+    <main>
+        <ul id="mysong">
+            <li id="song-ti">
+                <div>
+                    <i class="fa fa-play-circle"></i>
+                    <span>播放全部</span>
+                    <!-- 歌曲数量 -->
+                    <span id="songCount">(共50首)</span>
+                </div>
+                <span id="mysub">
+                    <!-- 收藏数 -->
+                    + 收藏(72330)
+                </span>
+            </li>
+            <!-- <li>
+                <div class="song-text">
+                    <span>1</span>
+                    <h3>
+                        <p>Little Summer<i>66666666</i></p>
+                        <span>111111111</span>
+                    </h3>
+                </div>
+                <div class="song-icon">
+                    <i class="fa fa-youtube-play"></i>
+                    <i class="fa fa-code-fork"></i>
+                </div>
+            </li> -->
+        </ul>
+    </main>
+    <script src="../js/gd1.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+.m-find {
+    font-size: 16 * @px;
+
+    height: 100%;
+    overflow-y: scroll;
+
+    .find-banner {
+        margin: 10 * @px auto;
+        background-color: #fff;
+        width: 92%;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+
+        .banner-img {
+            width: 800%;
+            font-size: 0;
+            transition: 0.6s all;
+
+            li {
+                width: 12.5%;
+                display: inline-block;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .banner-li {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 8 * @px;
+
+            li {
+                margin: 2 * @px;
+                display: inline-block;
+                width: 8 * @px;
+                height: 8 * @px;
+                background-color: #6e6e6e;
+                opacity: 0.8;
+                border-radius: 50%;
+            }
+
+            li.active {
+                background-color: #d43636;
+                opacity: 1;
+            }
+        }
+    }
+
+    .find-nav {
+        padding: 20 * @px;
+        background-color: #fff;
+        border-bottom: 1px #f3f3f3 solid;
+        margin-top: 20 * @px;
+        width: 100%;
+
+        ul {
+            margin-bottom: 10 * @px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            li {
+                width: 20%;
+                text-align: center;
+
+                div {
+                    display: inline-block;
+                    border-radius: 50%;
+                    background-color: #ff1e13;
+
+                    i {
+                        box-sizing: content-box;
+                        padding: 10 * @px;
+                        font-size: 26 * @px;
+                        color: white;
+                    }
+
+                    i.fa-align-left {
+                        transform: rotateZ(270deg);
+                    }
+
+                }
+
+                p {
+                    margin-top: 4 * @px;
+                    color: #333333;
+                    font-size: 14 * @px;
+                }
+            }
+        }
+
+    }
+
+    .find-product {
+
+        width: 100%;
+
+        .new-song {
+            margin-top: 10 * @px;
+        }
+
+        .song-sheet,
+        .new-song {
+            padding: 20 * @px;
+            background-color: #fff;
+
+            width: 100%;
+
+            .song-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h3 {
+                    font-size: 18 * @px;
+
+                    span {
+                        font-size: 14 * @px;
+                        font-weight: normal;
+                    }
+
+                    span.active {
+                        font-weight: bold;
+                        font-size: 18 * @px;
+                    }
+
+                    span:first-child::after {
+                        content: "";
+                        display: inline-block;
+                        margin: 0 10 * @px;
+                        width: 1 * @px;
+                        height: 16 * @px;
+                        background-color: #eaeaea;
+                    }
+                }
+
+                &>span {
+                    box-sizing: border-box;
+                    border: 1px solid #eaeaea;
+                    padding: 6 * @px 10 * @px;
+                    font-size: 14 * @px;
+                    border-radius: 30 * @px;
+                }
+            }
+
+            .song-content {
+
+                // padding: 20 * @px;
+                padding-top: 10 * @px;
+                width: 100%;
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0;
+
+                    li {
+                        margin-top: 10 * @px;
+                        position: relative;
+
+                        overflow: hidden;
+                        width: 30%;
+
+                        img {
+                            width: 100%;
+                            border-radius: 6 * @px;
+                        }
+
+                        span {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            font-size: 12 * @px;
+                            color: white;
+                            padding: 2 * @px;
+                            vertical-align: middle;
+                            display: flex;
+                            align-items: center;
+
+                            i {
+                                margin-right: 3 * @px;
+                                font-size: 10 * @px;
+                                vertical-align: middle;
+                            }
+                        }
+
+                        p {
+                            margin-top: 10 * @px;
+                            display: inline-block;
+                            width: 100%;
+                            font-size: 14 * @px;
+                            // 两行文字溢出隐藏
+                            text-overflow: -o-ellipsis-lastline;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            color: black;
+                            height: 40 * @px;
+                        }
+
+                        h3 {
+                            font-size: 10 * @px;
+                            font-weight: normal;
+                            color: #666;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

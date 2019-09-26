@@ -1,0 +1,104 @@
+.m-talk {
+    font-size: 16 * @px;
+    padding: 20 * @px;
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 60 * @px;
+    .talk-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        a {
+            padding: 10 * @px 30 * @px;
+        }
+        a.active {
+            color: #ff3a3a;
+            font-weight: bold;
+            position: relative;
+        }
+        a.active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%);
+            width: 55%;
+            height: 2* @px;
+            background-color: #ff3a3a;
+        }
+    }
+    .talk-content {
+        padding-top: 10 * @px;
+        width: 200%;
+        display: flex;
+
+        li {
+            width: 50%;
+            .square {
+                .square-top {
+                    width: 100%;
+                    border-radius: 10px;
+                    height: 100 * @px;
+                    background: url(../../images/a1.jpg);
+                    background-size: 100%;
+                    overflow: hidden;
+                    position: relative;
+                    a {
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                        div:first-child {
+                            position: absolute;
+                            left: 18 * @px;
+                            top: 10 * @px;
+                            z-index: 3;
+                            p:first-child {
+                                font-size: 16 * @px;
+                                color: white;
+                                font-weight: bold;
+                                margin-bottom: 15 * @px;
+                                i {
+                                    font-size: 20* @px;
+                                }
+                            }
+                            p:last-child {
+                                font-size: 12 * @px;
+                                color: #eaeaea;
+                            }
+                        }
+                        div:last-child {
+                            position: absolute;
+                            right: 18 * @px;
+                            top: 10 * @px;
+                            z-index: 3;
+                            p:first-child {
+                                font-size: 16 * @px;
+                                color: white;
+                                font-weight: bold;
+                                margin-bottom: 5 * @px;
+                            }
+                            p:last-child {
+                                font-size: 20 * @px;
+                                color: #eaeaea;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                    .square-top::after {
+                        content: "";/*加入占位*/
+                        width:100%;
+                        height:100%;
+                        position: absolute;/*定位*/
+                        left:0;
+                        top:0;
+                        background: inherit;/*背景跟随父元素*/
+                        filter: blur(16px);/*模糊效果*/
+                        z-index: 2;/*为了覆盖父元素*/
+                    }
+                    }
+                   
+            }
+        }
+    }
+}

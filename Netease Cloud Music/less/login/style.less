@@ -1,0 +1,313 @@
+@baseFont: 100px;
+@viewWidth: 414px;
+@deviceWidth: 1536px, 1024px, 768px, 640px, 414px, 411px, 375px, 360px, 320px;
+@len: length(@deviceWidth);
+@px: 1rem / @baseFont;
+
+.widthAdapt-x(@index) when(@index>=1) {
+    @media screen and (min-width: extract(@deviceWidth, @index)) {
+        html {
+            font-size: @baseFont / @viewWidth * extract(@deviceWidth, @index);
+        }
+    }
+
+    .widthAdapt-x(@index - 1);
+}
+
+.widthAdapt-x(@len);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#ph-login {
+
+    background: url(../../images/test/7.jpg) no-repeat fixed;
+    background-size: auto 100%;
+    // position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: #fff;
+    font-size: 16 * @px;
+    transition: all 0.5s;
+    overflow: hidden;
+
+    .log-number {
+        overflow: hidden;
+        position: absolute;
+        border-radius: 10px;
+        top: 15%;
+        left: 5%;
+        width: 90%;
+        height: 80%;
+        padding: 20 * @px;
+        z-index: 9;
+        // background: inherit;
+        text-align: right;
+        box-shadow: 0 0 10px 6px rgba(0, 0, 0, .5);
+
+        img {
+            top: 20%;
+            position: absolute;
+            border-radius: 50%;
+            filter: grayscale(50%);
+            width: 70px;
+            height: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            // animation: img-top 4s linear infinite;
+        }
+
+        @keyframes img-top {
+            0% {
+                top: 10px;
+            }
+
+            25% {
+                top: 5px;
+            }
+
+            50% {
+                top: 10px;
+            }
+
+            75% {
+                top: 5px;
+            }
+
+            100% {
+                top: 10px;
+            }
+        }
+        label {
+            position: relative;
+            i {
+                position: absolute;
+                top: -10%;
+                right: -70%;
+                color: white;
+                font-size: 30*@px;
+            }
+        }
+        input {
+            color: black;
+            
+            display: inline-block;
+            padding: 10 * @px;
+            font-size: 20 * @px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            border: 0px none;
+            border-bottom: 1px solid #d9d9d9;
+        }
+
+        #userphone {
+            margin-top: 200px;
+            margin-bottom: 40 * @px;
+        }
+
+        p {
+            display: inline-block;
+            color: lightpink;
+        }
+
+        #mybutton {
+
+            font-size: 18 * @px;
+            border: none;
+            border-radius: 30px;
+
+            width: 95%;
+            padding: 10 * @px;
+            display: block;
+            margin: 20% auto;
+            color: white;
+            background-color: pink;
+            opacity: 1;
+        }
+    }
+
+    .log-number::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        opacity: 0.2;
+    }
+
+    .register {
+        overflow: hidden;
+        display: none;
+        position: absolute;
+        border-radius: 10px;
+        top: 15%;
+        left: 5%;
+        width: 90%;
+        height: 80%;
+        padding: 20 * @px;
+        z-index: 9;
+        background: inherit;
+        text-align: right;
+        box-shadow: 0 0 10px 6px rgba(0, 0, 0, .5);
+        text-align: left;
+
+        #to-login {
+            display: inline-block;
+            color: rgb(61, 255, 255);
+
+            i {
+                color: rgb(61, 255, 255);
+            }
+        }
+
+        label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 40 * @px;
+            position: relative;
+
+            i {
+                font-size: 20 * @px;
+                color: rgb(193, 235, 252);
+            }
+
+            input {
+                color: white;
+                display: inline-block;
+                padding: 10 * @px;
+                font-size: 20 * @px;
+                width: 90%;
+                background-color: rgba(0, 0, 0, 0);
+                border: 0px none;
+                border-bottom: 1px solid #d9d9d9;
+            }
+
+            span {
+                color: deepskyblue;
+                position: absolute;
+                right: 10px;
+                top: 40%;
+
+                i {
+                    margin-right: 4px;
+                }
+
+                a {
+                    text-decoration: none;
+                    font-style: italic;
+                    color: deepskyblue;
+                }
+            }
+
+
+
+
+            span.orange {
+                color: orange;
+
+                i {
+                    color: orange;
+                }
+            }
+
+            span.green {
+                color: green;
+
+                i {
+                    color: green;
+                }
+            }
+
+            span.red {
+                color: rgb(231, 97, 97);
+
+                i {
+                    color: rgb(231, 97, 97);
+                }
+            }
+
+
+
+        }
+
+        label:nth-of-type(1) {
+            margin-top: 20px;
+        }
+
+        #reg-button {
+            font-size: 18 * @px;
+            border: none;
+            border-radius: 30px;
+            width: 95%;
+            padding: 10 * @px;
+            display: block;
+            margin: 40% auto;
+            color: white;
+            background-color: rgb(69, 231, 231);
+            opacity: 0.8;
+        }
+    }
+
+    .register::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.4;
+    }
+
+    #tips {
+        color: white;
+        font-size: 16 * @px;
+        border-radius: 30 * @px;
+        padding: 5*@px 15*@px;
+        display: block;
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        background-color: black;
+        line-height: 40 * @px;
+        text-align: center;
+        z-index: 999;
+    }
+}
+
+
+#ph-login::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: inherit;
+    filter: blur(2px);
+    z-index: 2;
+}
+
+.log-number ::-webkit-input-placeholder {
+    font-style: italic;
+    color: pink;
+}
+
+.register ::-webkit-input-placeholder {
+    font-style: italic;
+    color: skyblue;
+
+}

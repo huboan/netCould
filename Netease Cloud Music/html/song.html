@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/less" href="../less//song/style.less">
+    <script src="../lib/less.js"></script>
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>歌曲</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <img src="" alt="" id="song-bg">
+        <div class="top">
+            <h3>
+                <a href="#" onclick="javascript:history.back(-1)"><i class="fa fa-reply"></i></a>
+                <div id="song-name">
+                    
+                    <span></span>
+                </div>
+            </h3>
+            <i class="fa fa-share-alt"></i>
+        </div>
+        <main>
+            <!-- 图片动画界面 -->
+            <div class="Wave" id="Wave">
+                <div class="wave-img">
+                    <img src="" alt="" id="round-img">
+                    <div class="shadow-big" id="shadow-big">
+                        <span></span>
+                    </div>
+                    <div class="shadow-small" id="shadow-small">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="tools">
+                    <!-- fa fa-heart -->
+                    <i class="fa fa-heart-o" id="love-heart"></i>
+                    <i class="fa fa-arrow-circle-down"></i>
+                    <i class="fa fa-gift"></i>
+                    <i class="fa fa-commenting-o" id="usertalks">
+                        <span id="talks">666</span>
+                    </i>
+                    <i class="fa fa-ellipsis-v"></i>
+                </div>
+            </div>
+            <!-- 歌词界面 -->
+            <div class="Lyric" id="Lyric">
+                <div class="Lyric-top">
+                    <i class="fa fa-volume-up fa-fw" id="myvoice"></i>
+                    <input type="range" name="" value="10" max="10" min="0" id="myvolume">
+                </div>
+                <div class="Lyric-main" id="Lyric-main">
+                    <ul id="my-Lyric">
+                
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <!-- 歌曲列表 -->
+        <div class="all-song" id="all-song">
+                
+            <h1 id="song-items">随机播放</h1>
+            <ul id="all-list">
+                
+            </ul>
+        </div>
+        <!-- 底部播放暂停界面 -->
+        <footer>
+            <img src="" alt="" id="liked">
+            <audio src="" id="myaudio"></audio>
+            <h3>
+                <span id="time-start">00:00</span>
+                <input type="range" name="" id="rr" value="0" min="0" max="100">
+                <!-- <div class="progressBox">
+                    <span>00:00</span>
+                    <div class="progress">
+                        <div class="current">
+
+                        </div>
+                    </div>
+                    <span>03:00</span>
+                </div> -->
+                <span id="time-end">03:00</span>
+            </h3>
+            <ul>
+                <!--  fa-retweet  fa-random-->
+                <li><i class="fa fa-retweet"></i></li>
+                <li><i class="fa fa-step-backward" id="song-previous"></i></li>
+                <!-- fa-pause-circle-o -->
+                <li><i id="song-play" class="fa fa-play-circle-o"></i></li>
+                <li><i class="fa fa-step-forward" id="song-next"></i></li>
+                <li><i class="fa fa-bars" id="op-list"></i></li>
+            </ul>
+        </footer>
+        
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/song.js"></script>
+    <!-- <script src="../js/RangeSlider.js"></script> -->
+</body>
+
+</html>

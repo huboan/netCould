@@ -1,0 +1,559 @@
+.m-search {
+    position: absolute;
+    width: 100%;
+    right: 100%;
+    z-index: 888;
+    height: 100%;
+    background-color: #fff;
+    font-size: 16 * @px;
+    overflow-y: scroll;
+
+    .search-top {
+        background-color: #d83d34;
+        position: fixed;
+        width: 100%;
+        padding-top: 20 * @px;
+        height: 60 * @px;
+        display: flex;
+        z-index: 666;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        input {
+            color: #f3c4c2;
+            font-size: 18 * @px;
+            outline: none;
+            padding: 6 * @px;
+            flex: 1;
+            border: none;
+            border-bottom: 1px solid white;
+            background-color: transparent;
+        }
+
+        i {
+            padding: 10 * @px 20 * @px;
+            font-size: 24 * @px;
+            color: white;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #e37770;
+        }
+    }
+
+    .search-suggest {
+        position: absolute;
+        z-index: 9999999;
+        width: 82%;
+        top: 10%;
+        left: 10%;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+        ul {
+            width: 100%;
+            list-style: none;
+
+            li {
+                width: 100%;
+                padding: 10 * @px;
+                border-bottom: 1px solid #e6e6e6;
+                color: #808080;
+
+                i {
+                    margin-right: 10 * @px;
+                    color: #bbbdbf;
+                }
+            }
+
+            li:first-child {
+                color: #507daf;
+            }
+
+            li:last-child {
+                border: none;
+            }
+        }
+    }
+
+    .search-history {
+        margin-top: 50 * @px;
+        width: 100%;
+
+        padding: 20 * @px;
+
+        .history-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h3 {
+
+                font-size: 16 * @px;
+                vertical-align: middle;
+            }
+
+            i {
+                font-size: 20 * @px;
+                color: #b3b3b3;
+            }
+        }
+
+        .history-text {
+            margin-top: 16 * @px;
+            width: 100%;
+            overflow-x: scroll;
+
+            ul {
+                width: 200%;
+
+                li {
+                    display: inline-block;
+                    color: #313131;
+                    box-sizing: content-box;
+                    padding: 6 * @px 12 * @px;
+                    border-radius: 20 * @px;
+                    font-size: 16 * @px;
+                    background-color: #f3f3f3;
+                    margin-right: 10 * @px;
+                }
+            }
+        }
+    }
+
+    .search-hot {
+        padding-top: 20 * @px;
+        width: 100%;
+
+        &>h3 {
+            font-size: 16 * @px;
+        }
+
+        ul {
+            margin-bottom: 240px;
+            width: 100%;
+            list-style: none;
+
+            li {
+                width: 100%;
+                padding: 10 * @px 12 * @px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-size: 16 * @px;
+
+                &>span {
+                    color: #999999;
+                    margin-right: 26 * @px;
+                }
+
+                div {
+                    h3 {
+                        display: flex;
+                        align-items: center;
+
+                        &>p {
+                            font-weight: normal;
+                            font-size: 18 * @px;
+                            display: inline-block;
+                        }
+
+                        span {
+                            margin: 0 12px 0 6px;
+                            color: #ccc;
+                            font-size: 14* @px;
+                            font-weight: normal;
+                        }
+
+                        img {
+
+                            height: 16px;
+                        }
+                    }
+
+                    &>p {
+                        margin-top: 6 * @px;
+                        color: #999;
+                        font-size: 14 * @px;
+                    }
+                }
+
+            }
+
+            li:nth-child(1),
+            li:nth-child(2),
+            li:nth-child(3) {
+                &>span {
+                    color: #ff3a3a;
+                }
+
+                div {
+                    h3 {
+                        p {
+                            font-weight: bold;
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    .speech-search {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        background-color: white;
+        text-align: center;
+
+        // div {
+        //     img 
+        //     {
+        //         width: 100px;
+        //     }
+        // }
+        // button {
+        //     background-color: rgba(255, 0, 0, 0.342);
+        //     display: inline-block;
+        //     padding: 10 * @px 30 * @px;
+        //     border: none;
+        //     border-radius: 20 * @px;
+        //     outline: none;
+        // }
+    }
+
+    #search-result {
+        top: 60 * @px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        display: none;
+        z-index: 1;
+
+        #re-main {
+            overflow: hidden;
+            overflow-y: scroll;
+            position: relative;
+            width: 100%;
+            background-color: white;
+
+            .top {
+                position: fixed;
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                padding: 0 10 * @px;
+                height: auto;
+                background-color: #d83d34;
+
+                li {
+                    width: 20%;
+                    line-height: 40 * @px;
+                    text-align: center;
+                    font-size: 16 *@px;
+                    color: #f8d9d7;
+                    position: relative;
+                }
+
+                li.on {
+                    font-weight: 700;
+                    color: white;
+                }
+
+                li.on::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 50%;
+                    height: 2px;
+                    background-color: #fff;
+                    border-radius: 4px;
+                }
+            }
+
+            .re-center {
+                transition: all 0.4s;
+                margin-top: 40 * @px;
+                width: 500%;
+                display: flex;
+
+                &>li {
+                    width: 20%;
+                    overflow-y: scroll;
+                }
+
+                .re-song {
+
+                    #re-songlist {
+                        margin-top: 10px;
+                        width: 100%;
+                        &> img {
+                            width: 200px;
+                        }
+                        &> span{
+                            font-weight: 700;
+                            font-size: 20px;
+                        }
+
+                        li {
+                            a {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                            }
+
+                            padding: 12 * @px 16 * @px;
+
+                            .song-text {
+                                width: 70%;
+                                h1 {
+                                    
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    color: #507daf;
+                                    font-weight: normal;
+                                    font-size: 16 * @px;
+
+                                    span {
+                                        color: #999999;
+                                    }
+                                }
+
+                                h2 {
+                                    padding: 4 *@px 0;
+                                    font-weight: normal;
+                                    font-size: 12 * @px;
+                                    color: #808080;
+                                }
+
+                                h3 {
+                                    font-weight: normal;
+                                    font-size: 12 * @px;
+                                    color: #808080;
+                                }
+                            }
+
+                            .song-icon {
+                                i {
+                                    font-size: 22 * @px;
+                                    margin-right: 10* @px;
+                                    color: #b3b3b3;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .re-video {
+
+                    #re-videolist {
+                        margin-top: 10px;
+                        width: 100%;
+                        &> img {
+                            width: 200px;
+                        }
+                        &> span{
+                            font-weight: 700;
+                            font-size: 20px;
+                        }
+                        li {
+                            padding: 2 * @px 16 * @px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            #vi-img {
+                                width: 40%;
+                                position: relative;
+
+                                img {
+                                    width: 100%;
+                                    border-radius: 6px;
+                                }
+
+                                span {
+                                    i {
+                                        color: white;
+                                        vertical-align: middle;
+                                        font-size: 12 * @px;
+                                        margin-right: 4px;
+                                    }
+
+                                    font-size: 12 * @px;
+                                    vertical-align: middle;
+                                    position: absolute;
+                                    right: 4px;
+                                    top: 2px;
+                                    color: white;
+                                }
+                            }
+
+                            #vi-text {
+                                width: 55%;
+
+                                p {
+                                    color: #507daf;
+                                    text-overflow: -o-ellipsis-lastline;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                }
+
+                                span {
+                                    font-size: 12 * @px;
+                                    color: #808080;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .re-singger {
+                    #re-singgerlist {
+                        margin-top: 10px;
+                        width: 100%;
+                        &> img {
+                            width: 200px;
+                        }
+                        &> span{
+                            font-weight: 700;
+                            font-size: 20px;
+                        }
+                        li {
+                            padding: 10 * @px 16 * @px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .si-img {
+                                img {
+                                    width: 50 * @px;
+                                    border-radius: 50%;
+                                    vertical-align: middle;
+                                    margin-right: 6 * @px;
+                                }
+
+                                h3 {
+                                    vertical-align: middle;
+                                    display: inline-block;
+                                    font-weight: normal;
+
+                                    span {
+                                        color: #bbbdbf;
+                                    }
+                                }
+                            }
+
+                            .si-icon {
+                                color: #808080;
+
+                                i {
+                                    color: #d83d34;
+                                    margin-right: 6 * @px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .re-album {
+                    #re-albumlist {
+                        margin-top: 10px;
+                        width: 100%;
+                        &> img {
+                            width: 200px;
+                        }
+                        &> span{
+                            font-weight: 700;
+                            font-size: 20px;
+                        }
+                        li {
+                            padding: 8 * @px 16 * @px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            img {
+                                width: 50 * @px;
+                                height: 50 *@px;
+                                border-radius: 4px;
+                            }
+
+                            #al-text {
+                                width: 82%;
+
+                                p {
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap
+                                }
+
+                                span {
+                                    font-size: 12*@px;
+                                    color: #808080;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                .re-sheet {
+                    #re-sheetlist {
+                        margin-top: 10px;
+                        width: 100%;
+                        &> img {
+                            width: 200px;
+                        }
+                        &> span{
+                            font-weight: 700;
+                            font-size: 20px;
+                        }
+                        li {
+                            a {
+
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                            }
+
+                            padding: 8 * @px 16 * @px;
+
+
+                            img {
+                                width: 50 * @px;
+                                height: 50 *@px;
+                                border-radius: 4px;
+                            }
+
+                            #sh-text {
+                                width: 82%;
+
+                                p {
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap
+                                }
+
+                                span {
+                                    font-size: 12*@px;
+                                    color: #808080;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

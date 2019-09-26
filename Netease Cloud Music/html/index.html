@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/less" href="../less/index/style.less">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../lib/less.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <title>网易云音乐</title>
+</head>
+
+<body>
+    <!-- 打开界面 -->
+    <div class="wrap" id="wrap">
+        <div id="login"></div>
+        <!-- <div id="ph-login">
+            <div class="log-top">
+                <i class="fa fa-arrow-left"></i>
+                <span>手机号登录</span>
+            </div>
+            <div class="log-number">
+                <input type="number" name="" id="userphone" placeholder="请输入手机号">
+                <input type="password" name="" id="password" placeholder="请输入密码">
+            </div>
+            <button id="mybutton">登录</button>
+        </div> -->
+        <div class="top" id="mytop">
+            <ul>
+                <li>
+                    <i class="fa fa-bars"></i>
+                </li>
+                <li class="l-select">
+                    我的
+                </li>
+                <li>
+                    发现
+                </li>
+                <li>
+                    云村
+                </li>
+                <li>
+                    视频
+                </li>
+                <li>
+                    <i class="fa fa-search"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="left m-select" id="select">
+            <div id="sel-back">
+                <i class="fa fa-chevron-circle-left"></i>
+            </div>
+            <div class="select-top" id="select-top">
+                <div id="select-unlogin">
+                    <p>
+                        <span>登录网易云音乐</span><br>
+                        <span>手机电脑多端同步，尽享海量高品质音乐</span>
+                    </p>
+                    <a href="login.html" id="nowlogin">立即登录</a>
+                </div>
+                <div id="select-login">
+
+                </div>
+                <ul>
+                    <li>
+                        <i class="fa fa-envelope-o"></i>
+                        <p>我的消息</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-user-o"></i>
+                        <p>我的好友</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-puzzle-piece"></i>
+                        <p>个性换肤</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-headphones"></i>
+                        <p>听识歌曲</p>
+                    </li>
+                </ul>
+            </div>
+            <footer>
+                <ul>
+                    <li id="mod">
+                        <i class="fa fa-moon-o"></i>
+                        <span>夜间模式</span>
+                    </li>
+                    <li>
+                        <i class="fa fa-cog"></i>
+                        <span>设置</span>
+                    </li>
+                    <li id="logout">
+                        <i class="fa fa-sign-out"></i>
+                        <span>退出</span>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+        <div class="right m-search" id="search">
+            <div class="search-top">
+                <i class="fa fa-arrow-left" id="searcho"></i>
+                <input type="text" placeholder="热搜" autofocus id="search-text">
+                <i class="fa fa-user-o"></i>
+            </div>
+            <div class="search-history" id="search-history">
+                <div class="history-top">
+                    <h3>历史记录</h3>
+                    <i class="fa fa-trash-o"></i>
+                </div>
+                
+                <div class="history-text">
+                    <ul id="se-his">
+                        
+                    </ul>
+                </div>
+                <div class="search-hot">
+                    <h3>热搜</h3>
+                    <ul id="hot-list">
+                        
+                    </ul>
+                </div>
+            </div>
+            <div id="search-suggest" class="search-suggest">
+                <ul id="suggest-list">
+                    
+                </ul>
+            </div>
+            <div class="speech-search" id="speech-search">
+
+                <div class="service-item service-item-taste">
+                    <div class="service-item-content service-item-taste-content">
+                        <div class="taste-content">
+                            <button class="taste-button ready-button" id="taste_button">开始识别</button>
+                        </div>
+                        <div class="start-taste">
+                            <div class="start-taste-left" style="margin: auto">
+                                <div class="time-box">
+                                    <span class="start-taste-line" style="margin-bottom: 10px;">
+                                        <hr class="hr hr1">
+                                        <hr class="hr hr2">
+                                        <hr class="hr hr3">
+                                        <hr class="hr hr4">
+                                        <hr class="hr hr5">
+                                        <hr class="hr hr6">
+                                        <hr class="hr hr7">
+                                        <hr class="hr hr8">
+                                        <hr class="hr hr9">
+                                        <hr class="hr hr10">
+                                    </span>
+                                    <span class="total-time"><span class="used-time">00: 00</span> / 01:
+                                        00</span></span>
+                                </div>
+                                <div class="start-taste-button" style="margin: 0;">
+                                    <button class="taste-button start-button">结束识别</button>
+                                </div>
+                            </div>
+                            <div class="output-box" id="result_output" style="position: absolute;z-index: -999;background-color: #fff;display: none"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div>
+                    <img src="../images/speech.png" alt="">
+                </div>
+                <button class="taste-button ready-button" id="taste_button">开始识别</button> -->
+            </div>
+            <div id="search-result">
+                <div id="re-main">
+                    <ul class="top" id="re-top">
+                        <li class="on">单曲</li>
+                        <li>视频</li>
+                        <li>歌手</li>
+                        <li>专辑</li>
+                        <li>歌单</li>
+                    </ul>
+                    <ul class="re-center" id="re-center">
+                        <li class="re-song">
+                            <ul id="re-songlist">
+                                <!-- <li>
+                                    <div class="song-text">
+                                        <h1>
+                                            追光者<span>(电视剧《夏至未至》插曲)</span>
+                                        </h1>
+                                        <h2>
+                                            岑宁儿-夏至未至 影视原声带
+                                        </h2>
+                                        <h3>
+                                            电视剧《夏至未至》插曲
+                                        </h3>
+                                    </div>
+                                    <div class="song-icon">
+                                        <i class="fa fa-youtube-play"></i>
+                                        <i class="fa fa-code-fork"></i>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </li>
+                        <li class="re-video">
+                            <ul id="re-videolist">
+                                <!-- <li>
+                                    <div id="vi-img">
+                                        <img src="https://p2.music.126.net/5JFlnZbDpBR70BsYJIhLrg==/18535567022997577.jpg" alt="">
+                                        <span><i class="fa fa-play"></i> 1814万</span>
+                                    </div>
+                                    <div id="vi-text">
+                                        <p>追光者</p>
+                                        <span>03:52宁儿</span>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </li>
+                        <li class="re-singger">
+                            <ul id="re-singgerlist">
+                                
+                                <!-- <li>
+                                    <div class="si-img">
+                                        <img src="https://p2.music.126.net/frpkmg-7V2BPwHShLlXCbA==/109951163137936035.jpg" alt="">
+                                        <h3>
+                                            宁儿
+                                            <span>(Yoyo Sham)</span>
+                                        </h3>
+                                    </div>
+                                    <div class="si-icon">
+                                        <i class="fa fa-user-circle"></i>已入住
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </li>
+                        <li class="re-album">
+                            <ul id="re-albumlist">
+                                <!-- <li>
+                                    <img src="http://p4.music.126.net/ZZAQGWl9mR7g5xCyWWH3Pw==/19149094509535913.jpg" alt="">
+                                    <div id="al-text">
+                                        <p>夏至未至</p>
+                                        <span>aadjapisjp</span>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </li>
+                        <li class="re-sheet">
+                            <ul id="re-sheetlist">
+                                <!-- <li>
+                                    <img src="http://p4.music.126.net/ZZAQGWl9mR7g5xCyWWH3Pw==/19149094509535913.jpg" alt="">
+                                    <div id="sh-text">
+                                        <p>夏至未至</p>
+                                        <span>aadjapisjp</span>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main" id="main">
+            <ul id="tabul">
+                <li>
+                    <div class="m-home">
+                        <ul class="home-top">
+                            <li>
+                                <i class="fa fa-music"></i>
+                                <h6>
+                                    <span class="font-a">本地音乐</span>
+                                    <span class="font-b">(0)</span>
+                                </h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-play-circle"></i>
+                                <h6>
+                                    <span class="font-a">最近播放</span>
+                                    <span class="font-b">(0)</span>
+                                </h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-arrow-circle-down"></i>
+                                <h6>
+                                    <span class="font-a">下载管理</span>
+                                    <span class="font-b">(0)</span>
+                                </h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-flickr"></i>
+                                <h6>
+                                    <span class="font-a">我的电台</span>
+                                    <span class="font-b">(0)</span>
+                                </h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-user-md"></i>
+                                <h6>
+                                    <span class="font-a">我的收藏</span>
+                                    <span class="font-b">(0)</span>
+                                </h6>
+                            </li>
+                        </ul>
+                        <div class="newtab">
+                            <div class="tab-top">
+                                <h6>
+                                    <i id="creat-listsong" class="fa fa-angle-down"></i>
+                                    <span class="font-c">创建的歌单</span>
+                                    <span class="font-b" id="esList"></span>
+                                </h6>
+                                <p>
+                                    <i class="fa fa-plus"></i>
+                                    <i class="fa fa-sliders"></i>
+                                </p>
+                            </div>
+                            <div class="tab-main">
+                                <!-- <div>
+                                    <span>
+                                        <i class="fa fa-heart-o"></i>
+                                    </span>
+                                    <h6>
+                                        <span class="font-a">我喜欢的音乐</span><br>
+                                        <span class="font-b">0首</span>
+                                    </h6>
+                                </div> -->
+                                <ul id="song-list">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="newtab">
+                            <div class="tab-top">
+                                <h6>
+                                    <i id="collect-listsong" class="fa fa-angle-down"></i>
+                                    <span class="font-c">收藏的歌单</span>
+                                    <span class="font-b" id="coList"></span>
+                                </h6>
+                                <p>
+                                    <!-- <i class="fa fa-plus"></i> -->
+                                    <i class="fa fa-sliders"></i>
+                                </p>
+                            </div>
+                            <div class="collect-main">
+                                <ul id="song-collect">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="m-find">
+                        <div class="find-banner">
+                            <ul class="banner-img" id="banner-img">
+                                <li>
+                                    <img src="../images/lb1.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="../images/lb2.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="../images/lb3.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="../images/lb4.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="../images/lb5.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="../images/lb6.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="../images/lb7.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="../images/lb8.jpg" alt="">
+                                </li>
+                            </ul>
+                            <ul class="banner-li" id="banner-li">
+                                <li class="active"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="find-nav">
+                            <ul>
+                                <li>
+                                    <div>
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <p>每日推荐</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                    <p>歌单</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <i class="fa fa-align-left"></i>
+                                    </div>
+                                    <p>排行榜</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <i class="fa fa-archive"></i>
+                                    </div>
+                                    <p>电台</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <i class="fa fa-camera"></i>
+                                    </div>
+                                    <p>直播</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="find-product">
+                            <div class="song-sheet">
+                                <div class="song-top">
+                                    <h3>推荐歌单</h3>
+                                    <span>歌单广场</span>
+                                </div>
+                                <div class="song-content">
+                                    <ul>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="new-song">
+                                <div class="song-top">
+                                    <h3>
+                                        <span class="active">新碟</span>
+                                        <span>新歌</span>
+                                    </h3>
+
+                                    <span>更多新碟</span>
+                                </div>
+                                <div class="song-content">
+                                    <ul>
+                                        <li>
+                                            <img src="../images/xd1.jpg" alt="">
+
+                                            <p>逆流而上</p>
+                                            <h3>罗云熙</h3>
+                                        </li>
+                                        <li>
+                                            <img src="../images/xd2.jpg" alt="">
+
+                                            <p>追风</p>
+                                            <h3>颜中人</h3>
+                                        </li>
+                                        <li>
+                                            <img src="../images/xd3.jpg" alt="">
+
+                                            <p>超喜欢你</p>
+                                            <h3>沈以城</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="m-talk">
+                        <div class="talk-nav">
+                            <a href="#" class="active">广场</a>
+                            <a href="#">动态</a>
+                        </div>
+                        <ul class="talk-content">
+                            <li>
+                                <div class="square">
+                                    <div class="square-top">
+                                        <a href="#">
+                                            <div>
+                                                <p>云村热评墙 <i class="fa fa-angle-right"></i></p>
+                                                <p>这些评论截中你的心了吗？</p>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    Jul.
+                                                </p>
+                                                <p>29</p>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    视频功能开发中。。。
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../js/my.js"></script>
+    <script src="../js/hmac-sha256.js"></script>
+
+    <script src="../js/enc-base64-min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/search-r.js"></script>
+
+</body>
+
+</html>

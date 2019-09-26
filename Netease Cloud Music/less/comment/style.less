@@ -1,0 +1,228 @@
+@baseFont: 100px;
+@viewWidth: 414px;
+@deviceWidth: 1536px, 1024px, 768px, 640px, 414px, 411px, 375px, 360px, 320px;
+@len: length(@deviceWidth);
+@px: 1rem / @baseFont;
+
+.widthAdapt-x(@index) when(@index>=1) {
+    @media screen and (min-width: extract(@deviceWidth, @index)) {
+        html {
+            font-size: @baseFont / @viewWidth * extract(@deviceWidth, @index);
+        }
+    }
+
+    .widthAdapt-x(@index - 1);
+}
+
+.widthAdapt-x(@len);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16 * @px;
+}
+html,body {
+    width: 100%;
+    height: 100%;
+    background-color: #dad5d5;
+}
+body {
+    #showbl {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: -8;
+    }
+    nav {
+        height: 60 * @px;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        background-color: #d53b32;
+        .mynav{
+            padding: 15 * @px 15 * @px 20 * @px 20 *@px ;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            i {
+                font-size: 20 * @px;
+                color: white;
+            }
+            span {
+                color: white;
+                font-size: 20 * @px;
+                i {
+                    margin-right: 20 * @px;
+                    
+                }
+            }
+        }
+    }
+    section {
+        padding-top: 60 * @px;
+        width: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
+        #tips {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%,-50%,0);
+            width: 90%;
+            background-color:white;
+            border-radius: 10px;
+            z-index: -9;
+            list-style: none;
+            padding: 0 20 *@px;
+            li {
+                padding: 16 * @px;
+            }
+        }
+        .s-top {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14 * @px 20 * @px;
+            
+            div {
+                display: flex;
+                align-items: center;
+                img {
+                    margin-right: 8 * @px;
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 6px;
+                }
+                span {
+                    display: block;
+                }
+                a{
+                    display: inline-block;
+                    text-decoration: none;
+                    padding-top:   10 * @px;
+                    color: #507daf;
+                }
+            }
+            i {
+                color: #b3b3b3;
+
+            }
+        }
+        .s-main {
+            background-color: #fff;
+            margin-top: 10px;
+            padding: 10 * @px 20 * @px;
+            h1 {
+                font-size: 16 * @px;
+            }
+            .hot,.new {
+                list-style: none;
+                margin-bottom: 30 * @px;
+                li {
+                    border-bottom: 1px solid #f3f3f3;
+                    padding:  14*@px 0;
+                    .talk-top {
+                        overflow: hidden;
+                        &>img {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            float: left;
+                            vertical-align: middle;
+                            margin-right: 12px;
+                        }
+                        p {
+                            float: left;
+                            vertical-align: middle;
+                            font-size: 14 *@px;
+                            vertical-align: middle;
+                            span {
+                                margin-top: 4px;
+                                display: block;
+                                font-size: 10 *@px ;
+                                color: #adadad;
+                            }
+                            img {
+                                width: 24px;
+                                vertical-align: middle;
+                                margin-left: 8 * @px;
+                            }
+                            
+                        }
+                        h3 {
+                            float: right;
+                            font-weight: normal;
+                            font-size: 14 * @px;
+                            color: #999999;
+                        }
+                        i {
+                            margin-left: 4 * @px;
+                        }
+                    }
+                    .talk-text {
+                        resize: none;
+                        width: 100%;
+                        outline: none;
+                        border: none;
+                        margin-top: 8 * @px;
+                        padding-left: 52px;
+                        user-select: none;
+                        background-color: #fff;
+                        -webkit-user-select: none;
+                    }
+                    
+                }
+            }
+        }
+    }
+    footer {
+        position: fixed;
+        border-top: 1px solid #e6e6ee;
+        width: 100%;
+        left: 0;
+        bottom: -3px;
+        background-color:rgba(255,255,255,0.95);
+        
+        label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            #mytalk {
+                outline: none;
+                border: none;
+                width: 90%;
+                line-height: 50px;
+                text-indent: 8px;
+                background-color:  transparent;
+                color: black;
+                
+            }
+            #push {
+                outline: none;
+                border: none;
+                width: 10%;
+                background-color:  transparent;
+                font-size: 18 * @px;
+                color: #ccc;
+                margin-right: 10px;
+            }
+            #hasd {
+                position: absolute;
+                z-index: -9999999;
+                width: 0;
+                height: 0;
+                border: none;
+                outline: none;
+            }
+            ::-webkit-input-placeholder {
+                color: #ccc;
+            }
+        }
+    }
+}

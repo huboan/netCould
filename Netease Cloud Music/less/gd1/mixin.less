@@ -1,0 +1,9 @@
+// 定义函数混入
+.widthAdapt-x(@index) when(@index>=1) {
+    @media screen and (min-width: extract(@deviceWidth,@index)){
+        html {
+            font-size: @baseFont / @viewWidth * extract(@deviceWidth,@index);
+        }
+    }
+    .widthAdapt-x(@index - 1);
+}
