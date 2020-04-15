@@ -2,11 +2,11 @@
  * Created by lycheng on 2019/8/9.
  */
 let self = this
-this.onmessage = function(e){
-  switch(e.data.command){
-    case "transform":
-      transform.transaction(e.data.buffer);
-      break;
+this.onmessage = function(e) {
+  switch (e.data.command) {
+    case 'transform':
+      transform.transaction(e.data.buffer)
+      break
   }
 }
 
@@ -15,9 +15,9 @@ var transform = {
     let bufTo16kHz = transform.to16kHz(buffer)
     let bufTo16BitPCM = transform.to16BitPCM(bufTo16kHz)
     // let bufToBase64 = transform.toBase64(bufTo16BitPCM)
-    self.postMessage({'buffer': bufTo16BitPCM})
+    self.postMessage({ buffer: bufTo16BitPCM })
   },
-  to16kHz (buffer) {
+  to16kHz(buffer) {
     var data = new Float32Array(buffer)
     var fitCount = Math.round(data.length * (16000 / 44100))
     var newData = new Float32Array(fitCount)
@@ -34,18 +34,18 @@ var transform = {
     return newData
   },
 
-  to16BitPCM (input) {
+  to16BitPCM(input) {
     var dataLength = input.length * (16 / 8)
     var dataBuffer = new ArrayBuffer(dataLength)
     var dataView = new DataView(dataBuffer)
     var offset = 0
     for (var i = 0; i < input.length; i++, offset += 2) {
       var s = Math.max(-1, Math.min(1, input[i]))
-      dataView.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true)
+      dataView.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7fff, true)
     }
     return Array.from(new Int8Array(dataView.buffer))
   },
-  toBase64 (buffer) {
+  toBase64(buffer) {
     var binary = ''
     var bytes = new Uint8Array(buffer)
     var len = bytes.byteLength
